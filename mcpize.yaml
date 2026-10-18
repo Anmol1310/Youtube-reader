@@ -1,0 +1,19 @@
+# MCPize monetization config for YouTube Reader.
+# Commit this file to the repo so the dashboard and config stay in sync.
+# Docs: https://mcpize.com/docs/monetization
+#
+# BEFORE GOING LIVE:
+#   1. Replace 0xYOUR_WALLET_ADDRESS_HERE with your own Base wallet address
+#      (Coinbase Wallet / Rabby / MetaMask with Base added — you control the keys).
+#   2. Start on base-sepolia (free testnet) to validate the full payment flow.
+#   3. Flip network to `base` when ready for real money.
+
+pricing:
+  protocol: x402
+  network: base-sepolia  # use `base` for production
+  recipient: "0xcf7f26b4dd1927c70270239f8d57e24ef46ff9c2"
+  asset: usdc
+  tools:
+    - name: youtube_reader
+      price: "0.02"
+      description: Turn any YouTube video into text — full transcript with timestamps, title, channel.
