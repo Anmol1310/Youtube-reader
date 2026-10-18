@@ -58,10 +58,28 @@ Use the copy from the top of this file.
 | mcp.so | submit | $39 web form, or free via GitHub issue |
 | Cline Marketplace | submit | free |
 
-## Step 5 — Agent payment directories (after payments go live)
+## Step 5 — x402 agent-payment discovery (after payments go live)
 
-- x402scan, Agent402, 402 Index — list every payable endpoint the hour you ship payments
-- Coinbase CDP Bazaar — also use it to spy on what actually sells before building tool #2
+IMPORTANT (verified Oct 2026): you CANNOT submit or "list" an endpoint on the
+Coinbase CDP x402 Bazaar — there is no form and no listing API. A resource gets
+indexed only after a real payment settles through the CDP facilitator, and each
+facilitator's index is independent (CDP, thirdweb, PayAI each list only what
+settled through them). So the real sequence is:
+
+1. Declare discovery metadata in your 402 response (route, method, input
+   example, output schema) — this is what lets an index catalogue you.
+2. Make the first real payment happen through the CDP facilitator
+   (a buyer call, or your own test payment) — that single settled payment is
+   what puts you in the Bazaar index.
+3. Verify by querying that facilitator's discovery index for your URL —
+   per index, not once globally.
+4. Agents also browse these public catalogues directly, so get visible there:
+   Coinbase Agentic.Market (public catalog of x402 services), x402scan.
+
+Honest note: an Oct 13, 2026 crawl of all 31,620 Bazaar listings found 77% had
+two payers or fewer in 30 days, and 45.8% had exactly one (usually the seller's
+own test payment). Being listed is not demand — the buyers still come from the
+directories in Step 4, your GitHub README, and the human web page.
 
 ## What makes a listing win (the 3 rules)
 

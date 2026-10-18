@@ -44,6 +44,11 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    srv = HTTPServer(("127.0.0.1", 8081), Handler)
-    print("YouTube Reader API on http://127.0.0.1:8081  (POST /read)")
+    import os
+    # Railway (and most hosts) give us a PORT env var and require 0.0.0.0.
+    # Local runs still default to 127.0.0.1:8081.
+    port = int(os.environ.get("PORT", "8081"))
+    host = "0.0.0.0" if "PORT" in os.environ else "127.0.0.1"
+    srv = HTTPServer((host, port), Handler)
+    print("YouTube Reader API on http://%s:%d  (POST /read)" % (host, port))
     srv.serve_forever()
