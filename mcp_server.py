@@ -23,8 +23,10 @@ def youtube_reader(url: str) -> dict:
 if __name__ == "__main__":
     import sys
     if "--http" in sys.argv:
-        # Remote mode: serves MCP over streamable HTTP (for Railway + registry)
-        # Run: .venv/bin/python mcp_server.py --http   (listens on 0.0.0.0:8081)
-        mcp.run(transport="streamable-http", host="0.0.0.0", port=8081)
+        # Remote mode: serves MCP over streamable HTTP (for Railway + registry).
+        # Run: python mcp_server.py --http   (uses $PORT on Railway, 8081 locally)
+        import os
+        port = int(os.environ.get("PORT", "8081"))
+        mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
     else:
         mcp.run()
