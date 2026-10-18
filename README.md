@@ -72,8 +72,15 @@ fix: add a residential proxy (~$3 per 1,000 transcripts) as step 3.
 3. It reads `requirements.txt` + `Procfile` automatically. Done.
 4. Your API is live at the Railway URL: `POST https://<your-app>.up.railway.app/read`
 
-## Pricing (planned)
+## Pricing
 
 - Metadata (title/channel): free
-- Transcript: $0.02 per video (pay per call, no signup)
-- Heavy users: $19/month unlimited-ish tier
+- Transcript via MCP (`youtube_reader` tool): **$0.02 per call**, paid in USDC on Base via x402 — no signup, no API key. See [PAYMENTS.md](PAYMENTS.md).
+- Plain HTTP API (`POST /read`): free while in beta
+- Heavy users: $19/month tier planned (Stripe, phase 2)
+
+## Monetization (MCPize)
+
+Per-call pricing is configured in [mcpize.yaml](mcpize.yaml) and the MCPize
+dashboard (Payments tab). Full setup guide, wallet instructions, testnet
+flow, and caveats: [PAYMENTS.md](PAYMENTS.md).
