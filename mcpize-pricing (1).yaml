@@ -1,0 +1,10 @@
+pricing:
+  protocol: "x402"
+  network: "base-sepolia"
+  recipient: "0xcf7F26B4DD1927c70270239F8D57E24EF46Ff9C2"
+  asset: "usdc"
+  tools:
+    - name: "youtube_reader"
+      price: "0.02"
+      description: "Turn any YouTube video into text — full transcript with
+        timestamps, title, channel."
